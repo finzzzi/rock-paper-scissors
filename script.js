@@ -25,7 +25,7 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
-    // Determines who wins the round, or a tie.
+    // Determines who wins the round, or a tie, based on the player choice and computer choice. Output the score in the end.
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === computerChoice) {
             console.log(`Computer chose: ${computerChoice}`);
