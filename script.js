@@ -13,7 +13,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     // Asks for player input.
-    humanChoice = prompt("rock, paper, scissors?");
+    let humanChoice = prompt("rock, paper, scissors?");
     // Lowercase all the word
     humanChoice = humanChoice.toLowerCase();
 
