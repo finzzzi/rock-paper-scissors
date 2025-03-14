@@ -27,25 +27,23 @@ function playGame() {
 
     // Determines who wins the round, or a tie, based on the player choice and computer choice. Output the score in the end.
     function playRound(humanChoice, computerChoice) {
+        console.log(`Computer chose: ${computerChoice}`);
+        
         if (humanChoice === computerChoice) {
-            console.log(`Computer chose: ${computerChoice}`);
             console.log("It's a tie!");
-            console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
         } else if (
             (humanChoice === "rock" && computerChoice === "scissors") ||
             (humanChoice === "paper" && computerChoice === "rock") ||
             (humanChoice === "scissors" && computerChoice === "paper")
         ) {
-            console.log(`Computer chose: ${computerChoice}`);
             console.log(`You win! ${humanChoice} beats ${computerChoice}`);
             humanScore++;
-            console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
         } else {
-            console.log(`Computer chose: ${computerChoice}`);
             console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
             computerScore++;
-            console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
         }
+
+        console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
     }
 
     // Play a round of 5.
