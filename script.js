@@ -1,4 +1,5 @@
 function getComputerChoice() {
+    // Generate a random number between 0 and 2 to determine computer choice.
     let randomNumber = Math.floor(Math.random() * 3);
     
     if (randomNumber === 0) {
@@ -20,9 +21,11 @@ function getHumanChoice() {
 }
 
 function playGame() {
+    // Variables to store player and computer score.
     let humanScore = 0;
     let computerScore = 0;
 
+    // Determines who wins the round, or a tie.
     function playRound(humanChoice, computerChoice) {
         if (humanChoice === computerChoice) {
             console.log(`Computer chose: ${computerChoice}`);
@@ -45,6 +48,7 @@ function playGame() {
         }
     }
 
+    // Play a round of 5.
     for (let i = 0; i < 5; i++) {
         console.log(`Round ${i + 1}`);
         const humanSelection = getHumanChoice();
@@ -53,6 +57,7 @@ function playGame() {
         playRound(humanSelection, computerSelection);
     }
 
+    // Announcement of the end of the game and result.
     console.log("It's the end of the game! And the result is...")
     if (humanScore > computerScore) {
         console.log(`You win the game! Final score -> You: ${humanScore}, Computer: ${computerScore}`);
