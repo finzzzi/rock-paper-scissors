@@ -9,3 +9,12 @@ function getComputerChoice() {
         return "scissors";
     }
 };
+
+function getHumanChoice() {
+    // Asks for player input.
+    humanChoice = prompt("rock, paper, scissors?");
+    // Lowercase all the word
+    humanChoice = humanChoice.toLowerCase();
+
+    return humanChoice;
+}
