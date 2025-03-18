@@ -10,6 +10,7 @@ const finalResult = document.querySelector("#final-result");
 let humanScore = 0;
 let computerScore = 0;
 
+// Function to get computer's choice
 function getComputerChoice() {
     // Generate a random number between 0 and 2 to determine computer choice.
     let randomNumber = Math.floor(Math.random() * 3);
@@ -32,6 +33,7 @@ function getHumanChoice() {
     return humanChoice;
 }
 
+// Function to play a round
 function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
     roundResult.textContent = `Computer chose: ${computerChoice}`;
@@ -51,15 +53,25 @@ function playRound(humanChoice) {
     }
 
     score.textContent = `Score -> You: ${humanScore}, Computer: ${computerScore}`;
+
+    // Check if the game is over
+    if (humanScore === 5 || computerScore === 5) {
+        endGame();
+    }
 }
 
+// Function to end the game and announce the result
 function endGame() {
-    console.log("It's the end of the game! And the result is...")
+    finalResult.textContent = "It's the end of the game! And the result is...";
+    console.log("It's the end of the game! And the result is...");
     if (humanScore > computerScore) {
+        finalResult.textContent += `You win the game! Final score -> You: ${humanScore}, Computer: ${computerScore}`;
         console.log(`You win the game! Final score -> You: ${humanScore}, Computer: ${computerScore}`);
     } else if (humanScore < computerScore) {
+        finalResult.textContent += `You lose the game! Final score -> You: ${humanScore}, Computer: ${computerScore}`;
         console.log(`You lose the game! Final score -> You: ${humanScore}, Computer: ${computerScore}`);
     } else {
+        finalResult.textContent += `It's a tie! Final score -> You: ${humanScore}, Computer: ${computerScore}`;
         console.log(`It's a tie! Final score -> You: ${humanScore}, Computer: ${computerScore}`);
     }
 }
