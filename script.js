@@ -1,3 +1,12 @@
+// DOM Elements
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
+// Global variables to keep track of player and computer score.
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     // Generate a random number between 0 and 2 to determine computer choice.
     let randomNumber = Math.floor(Math.random() * 3);
@@ -20,42 +29,28 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-function playGame() {
-    // Variables to store player and computer score.
-    let humanScore = 0;
-    let computerScore = 0;
-
-    // Determines who wins the round, or a tie, based on the player choice and computer choice. Output the score in the end.
-    function playRound(humanChoice, computerChoice) {
-        console.log(`Computer chose: ${computerChoice}`);
-        
-        if (humanChoice === computerChoice) {
-            console.log("It's a tie!");
-        } else if (
-            (humanChoice === "rock" && computerChoice === "scissors") ||
-            (humanChoice === "paper" && computerChoice === "rock") ||
-            (humanChoice === "scissors" && computerChoice === "paper")
-        ) {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-            humanScore++;
-        } else {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-            computerScore++;
-        }
-
-        console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
+function playRound(humanChoice) {
+    const computerChoice = getComputerChoice();
+    console.log(`Computer chose: ${computerChoice}`);
+    
+    if (humanChoice === computerChoice) {
+        console.log("It's a tie!");
+    } else if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
+    } else {
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
     }
-    /* 
-    // Play a round of 5.
-    for (let i = 0; i < 5; i++) {
-        console.log(`Round ${i + 1}`);
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
 
-        playRound(humanSelection, computerSelection);
-    } */
+    console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
+}
 
-    // Announcement of the end of the game and result.
+function endGame() {
     console.log("It's the end of the game! And the result is...")
     if (humanScore > computerScore) {
         console.log(`You win the game! Final score -> You: ${humanScore}, Computer: ${computerScore}`);
@@ -66,4 +61,7 @@ function playGame() {
     }
 }
 
-playGame();
+// Event listeners for the buttons
+rockButton.addEventListener("click", () => playRound("rock"));
+paperButton.addEventListener("click", () => playRound("paper"));
+scissorsButton.addEventListener("click", () => playRound("scissors"));
