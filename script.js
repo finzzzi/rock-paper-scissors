@@ -74,6 +74,10 @@ function endGame() {
         finalResult.textContent += `It's a tie! Final score -> You: ${humanScore}, Computer: ${computerScore}`;
         console.log(`It's a tie! Final score -> You: ${humanScore}, Computer: ${computerScore}`);
     }
+
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
 }
 
 // Event listeners for the buttons
