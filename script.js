@@ -45,7 +45,7 @@ function playGame() {
 
         console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
     }
-
+    /* 
     // Play a round of 5.
     for (let i = 0; i < 5; i++) {
         console.log(`Round ${i + 1}`);
@@ -53,7 +53,7 @@ function playGame() {
         const computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
-    }
+    } */
 
     // Announcement of the end of the game and result.
     console.log("It's the end of the game! And the result is...")
