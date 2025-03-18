@@ -2,6 +2,9 @@
 const rockButton = document.querySelector("#rock");
 const paperButton = document.querySelector("#paper");
 const scissorsButton = document.querySelector("#scissors");
+const roundResult = document.querySelector("#round-result");
+const score = document.querySelector("#score");
+const finalResult = document.querySelector("#final-result");
 
 // Global variables to keep track of player and computer score.
 let humanScore = 0;
@@ -31,23 +34,23 @@ function getHumanChoice() {
 
 function playRound(humanChoice) {
     const computerChoice = getComputerChoice();
-    console.log(`Computer chose: ${computerChoice}`);
+    roundResult.textContent = `Computer chose: ${computerChoice}`;
     
     if (humanChoice === computerChoice) {
-        console.log("It's a tie!");
+        roundResult.textContent += " - It's a tie!";
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        roundResult.textContent += ` - You win! ${humanChoice} beats ${computerChoice}`;
         humanScore++;
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        roundResult.textContent += ` - You lose! ${computerChoice} beats ${humanChoice}`;
         computerScore++;
     }
 
-    console.log(`Score -> You: ${humanScore}, Computer: ${computerScore}`);
+    score.textContent = `Score -> You: ${humanScore}, Computer: ${computerScore}`;
 }
 
 function endGame() {
